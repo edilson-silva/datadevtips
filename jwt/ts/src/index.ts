@@ -1,4 +1,5 @@
 import { sign } from "./jwt/sign";
+import { verify } from "./jwt/verify";
 
 const secret = "secret-xyz";
 
@@ -10,4 +11,5 @@ const token = sign({
 	secret,
 });
 
-console.log(`Token: ${token}`);
+console.log(`Generated token: ${token}`);
+console.log(`Decoded token data: ${JSON.stringify(verify({ secret, token }))}`);
